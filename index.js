@@ -23,7 +23,7 @@ let play_game=(guess_num)=>{
     let sc=score.innerHTML;
     let hsc=highscore.innerText;
     console.log(guess_num);
-    if (isNaN(num) || num < 0 || num > 20) {
+    if (isNaN(num) || num < 0 || num > 20 || num=="") {
         msg.innerText = "Invalid input!";
         return;
       }
