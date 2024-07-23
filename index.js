@@ -14,11 +14,13 @@ let guess_number = () => {
   for (let i = 0; i < 21; i++) {
     option.push(option[i]);
   }
-  let number = Math.floor(Math.random(option) * 21);
+  let number = Math.floor(Math.random(option) * 20) + 1;
   return number;
 };
+// Math.floor(Math.random(option) * 20) + 1;
 
-let play_game = (guess_num) => {
+let guess_num = guess_number();
+check.addEventListener("click", () => {
   let num = number.value;
   let sc = score.innerHTML;
   let hsc = highscore.innerText;
@@ -50,25 +52,19 @@ let play_game = (guess_num) => {
     your_score--;
     score.innerText = your_score;
   }
-};
-
-let game = () => {
-  let guess_num = guess_number();
-  check.addEventListener("click", () => {
-    play_game(guess_num);
-  });
-};
+});
 
 let gameReset = () => {
   reset.addEventListener("click", () => {
+    guess_num = guess_number();
+    // Math.floor(Math.random(option) * 20) + 1;
     your_score = 20;
     score.innerText = your_score;
+    number.value = " ";
     body.style.backgroundColor = "rgb(35, 34, 34)";
     number.disabled = false;
     msg.innerText = "start guessing...";
-    guess_number();
   });
 };
 
-game();
 gameReset();
